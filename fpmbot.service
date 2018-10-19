@@ -1,9 +1,0 @@
-[Unit]
-Description=Execute fpmbot
-
-[Service]
-Type=oneshot
-ExecStart=/bin/true
-
-[Install]
-WantedBy=multi-user.target

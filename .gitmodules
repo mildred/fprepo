@@ -1,3 +1,0 @@
-[submodule "vendor/gopkg.in/yaml.v2"]
-	path = vendor/gopkg.in/yaml.v2
-	url = https://github.com/go-yaml/yaml.git

@@ -1,0 +1,9 @@
+[Unit]
+Description=Check new package in fprepo repository %f
+
+[Path]
+PathChanged=%f/pkgs
+Unit=fprepo-deb@%i.service
+
+[Install]
+WantedBy=default.target

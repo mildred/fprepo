@@ -1,0 +1,10 @@
+[Unit]
+Description=Generate a debian repository from fprepo packages
+
+[Service]
+Type=oneshot
+WorkingDirectory=%f
+ExecStart=/usr/bin/fprepo-deb
+
+[Install]
+WantedBy=multi-user.target

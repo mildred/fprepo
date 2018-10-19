@@ -1,0 +1,9 @@
+---
+# vim: sts=2:sw=2:et
+- hosts: bots
+  gather_facts: no
+  tasks:
+    - copy: src=fprepo-deb@.service dest=/etc/systemd/system/fprepo-deb@.service
+    - copy: src=fprepo-deb@.path    dest=/etc/systemd/system/fprepo-deb@.path
+    - copy: src=fprepo-deb          dest=/usr/bin/fprepo-deb
+    - file: path=/var/lib/fpmrepo   state=directory

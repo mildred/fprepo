@@ -17,9 +17,11 @@ install-fprepo: ## Ansible install fprepo
 .PHONY: install
 install: ## Local install fprepo
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
-	install -m755 fprepo $(DESTDIR)$(PREFIX)/bin/fprepo
 	install -m755 fprepo-deb $(DESTDIR)$(PREFIX)/bin/fprepo-deb
 	mkdir -p $(DESTDIR)$(PREFIX)/lib/systemd/system
-	install -m644 fprepo-deb@.service $(DESTDIR)$(PREFIX)/lib/systemd/system/fprepo-deb@.service
-	install -m644 fprepo-deb@.service $(DESTDIR)$(PREFIX)/lib/systemd/system/fprepo-deb@.service
+	sed "s:/usr/bin/fprepo:$(PREFIX)/bin/fprepo:g" <fprepo-deb@.service >fprepo-deb@.service.inst
+	sed 's:/usr/bin/fprepo:$(PREFIX)/bin/fprepo:g' <fprepo-deb@.path    >fprepo-deb@.path.inst
+	install -m644 fprepo-deb@.service.inst $(DESTDIR)$(PREFIX)/lib/systemd/system/fprepo-deb@.service
+	install -m644 fprepo-deb@.path.inst    $(DESTDIR)$(PREFIX)/lib/systemd/system/fprepo-deb@.path
+	rm -f fprepo-deb@.service.inst fprepo-deb@.path.inst
 

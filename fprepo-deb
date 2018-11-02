@@ -15,7 +15,7 @@ while true; do
   shift
 done
 
-reponame="$1"
+reponame="${1:-${PWD##*/}}"
 keyring="../$reponame.gpg"
 
 deb-release(){
